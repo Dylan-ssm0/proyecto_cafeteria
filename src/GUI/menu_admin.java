@@ -4,6 +4,13 @@
  */
 package GUI;
 
+import Paneles.Categoria;
+import Paneles.Cliente;
+import Paneles.Empleado;
+import Paneles.Producto;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ASUS
@@ -13,10 +20,25 @@ public class menu_admin extends javax.swing.JFrame {
     /**
      * Creates new form menu_admin
      */
+    Cliente cl = new Cliente();
+    Empleado em = new Empleado();
+    Categoria ct = new Categoria();
+    Producto pr = new Producto();
+    
+    
     public menu_admin() {
         initComponents();
     }
 
+    private void ShowPanel(JPanel p){
+        p.setSize(1280,600);
+        p.setLocation(0, 0);
+        
+        fondo.removeAll();
+        fondo.add(p, BorderLayout.CENTER);
+        fondo.revalidate();
+        fondo.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,7 +49,8 @@ public class menu_admin extends javax.swing.JFrame {
     private void initComponents() {
 
         lateral = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbladmin = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         btncliente = new javax.swing.JButton();
         btnempleado = new javax.swing.JButton();
         btncategoria = new javax.swing.JButton();
@@ -42,58 +65,81 @@ public class menu_admin extends javax.swing.JFrame {
 
         lateral.setBackground(new java.awt.Color(46, 42, 40));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(199, 161, 122));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Admin");
+        lbladmin.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lbladmin.setForeground(new java.awt.Color(199, 161, 122));
+        lbladmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbladmin.setText("Admin");
+
+        jSeparator1.setForeground(new java.awt.Color(199, 161, 122));
+        jSeparator1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btncliente.setBackground(new java.awt.Color(199, 161, 122));
         btncliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btncliente.setForeground(new java.awt.Color(33, 33, 33));
+        btncliente.setForeground(new java.awt.Color(0, 0, 0));
         btncliente.setText("Gestión de Clientes");
+        btncliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclienteActionPerformed(evt);
+            }
+        });
 
         btnempleado.setBackground(new java.awt.Color(199, 161, 122));
         btnempleado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnempleado.setForeground(new java.awt.Color(33, 33, 33));
+        btnempleado.setForeground(new java.awt.Color(0, 0, 0));
         btnempleado.setText("Gestión de Empleados");
+        btnempleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnempleadoActionPerformed(evt);
+            }
+        });
 
         btncategoria.setBackground(new java.awt.Color(199, 161, 122));
         btncategoria.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        btncategoria.setForeground(new java.awt.Color(33, 33, 33));
+        btncategoria.setForeground(new java.awt.Color(0, 0, 0));
         btncategoria.setText("Categorias");
+        btncategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncategoriaActionPerformed(evt);
+            }
+        });
 
         btnproducto.setBackground(new java.awt.Color(199, 161, 122));
         btnproducto.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        btnproducto.setForeground(new java.awt.Color(33, 33, 33));
+        btnproducto.setForeground(new java.awt.Color(0, 0, 0));
         btnproducto.setText("Productos");
+        btnproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnproductoActionPerformed(evt);
+            }
+        });
 
         btningrediente.setBackground(new java.awt.Color(199, 161, 122));
         btningrediente.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        btningrediente.setForeground(new java.awt.Color(33, 33, 33));
+        btningrediente.setForeground(new java.awt.Color(0, 0, 0));
         btningrediente.setText("Ingredientes");
 
         btnnutriente.setBackground(new java.awt.Color(199, 161, 122));
         btnnutriente.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        btnnutriente.setForeground(new java.awt.Color(33, 33, 33));
+        btnnutriente.setForeground(new java.awt.Color(0, 0, 0));
         btnnutriente.setText("Nutrientes");
 
         btnpedido.setBackground(new java.awt.Color(199, 161, 122));
         btnpedido.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        btnpedido.setForeground(new java.awt.Color(33, 33, 33));
+        btnpedido.setForeground(new java.awt.Color(0, 0, 0));
         btnpedido.setText("Pedidos");
 
         btndetalle.setBackground(new java.awt.Color(199, 161, 122));
         btndetalle.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btndetalle.setForeground(new java.awt.Color(33, 33, 33));
+        btndetalle.setForeground(new java.awt.Color(0, 0, 0));
         btndetalle.setText("Detalles de Pedidos");
 
-        fondo.setBackground(new java.awt.Color(250, 243, 224));
+        fondo.setBackground(new java.awt.Color(245, 225, 200));
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGap(0, 1280, Short.MAX_VALUE)
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,17 +151,21 @@ public class menu_admin extends javax.swing.JFrame {
         lateralLayout.setHorizontalGroup(
             lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lateralLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnempleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btncliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btncategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnproducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btningrediente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnnutriente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnpedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btndetalle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lateralLayout.createSequentialGroup()
+                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addGroup(lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbladmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnempleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btncliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btncategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnproducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btningrediente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnnutriente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnpedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btndetalle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -123,8 +173,10 @@ public class menu_admin extends javax.swing.JFrame {
             lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lateralLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(lbladmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btncliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnempleado, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,7 +192,7 @@ public class menu_admin extends javax.swing.JFrame {
                 .addComponent(btnpedido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btndetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
             .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -157,6 +209,22 @@ public class menu_admin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclienteActionPerformed
+        ShowPanel(cl);
+    }//GEN-LAST:event_btnclienteActionPerformed
+
+    private void btnempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnempleadoActionPerformed
+        ShowPanel(em);
+    }//GEN-LAST:event_btnempleadoActionPerformed
+
+    private void btncategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncategoriaActionPerformed
+        ShowPanel(ct);
+    }//GEN-LAST:event_btncategoriaActionPerformed
+
+    private void btnproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproductoActionPerformed
+        ShowPanel(pr);
+    }//GEN-LAST:event_btnproductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,7 +271,8 @@ public class menu_admin extends javax.swing.JFrame {
     private javax.swing.JButton btnpedido;
     private javax.swing.JButton btnproducto;
     private javax.swing.JPanel fondo;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel lateral;
+    private javax.swing.JLabel lbladmin;
     // End of variables declaration//GEN-END:variables
 }
