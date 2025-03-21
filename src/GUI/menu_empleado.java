@@ -4,6 +4,11 @@
  */
 package GUI;
 
+import Paneles.Detalle_venta;
+import Paneles.Venta;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ASUS
@@ -17,6 +22,19 @@ public class menu_empleado extends javax.swing.JFrame {
         initComponents();
     }
 
+    Venta vt = new Venta();
+    Detalle_venta dv = new Detalle_venta();
+    
+    private void Showpanel (JPanel p){
+        
+        p.setSize(1680,600);
+        p.setLocation(0, 0);
+        
+        Fondo.removeAll();
+        Fondo.add(p, BorderLayout.CENTER);
+        Fondo.revalidate();
+        Fondo.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,12 +75,22 @@ public class menu_empleado extends javax.swing.JFrame {
         btnpedido.setBackground(new java.awt.Color(199, 161, 122));
         btnpedido.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btnpedido.setForeground(new java.awt.Color(0, 0, 0));
-        btnpedido.setText("Pedidos");
+        btnpedido.setText("Ventas");
+        btnpedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpedidoActionPerformed(evt);
+            }
+        });
 
         btndetalle.setBackground(new java.awt.Color(199, 161, 122));
-        btndetalle.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btndetalle.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btndetalle.setForeground(new java.awt.Color(0, 0, 0));
-        btndetalle.setText("Detalles de Pedidos");
+        btndetalle.setText("Detalle de Ventas");
+        btndetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndetalleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout lateralLayout = new javax.swing.GroupLayout(lateral);
         lateral.setLayout(lateralLayout);
@@ -103,6 +131,14 @@ public class menu_empleado extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnpedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpedidoActionPerformed
+        Showpanel(vt);
+    }//GEN-LAST:event_btnpedidoActionPerformed
+
+    private void btndetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndetalleActionPerformed
+        Showpanel(dv);
+    }//GEN-LAST:event_btndetalleActionPerformed
 
     /**
      * @param args the command line arguments

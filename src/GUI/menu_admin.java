@@ -6,8 +6,12 @@ package GUI;
 
 import Paneles.Categoria;
 import Paneles.Cliente;
+import Paneles.Detalle_venta;
 import Paneles.Empleado;
+import Paneles.Ingrediente;
+import Paneles.Nutriente;
 import Paneles.Producto;
+import Paneles.Venta;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -24,7 +28,10 @@ public class menu_admin extends javax.swing.JFrame {
     Empleado em = new Empleado();
     Categoria ct = new Categoria();
     Producto pr = new Producto();
-    
+    Ingrediente in = new Ingrediente();
+    Nutriente nt = new Nutriente();
+    Venta vt = new Venta();
+    Detalle_venta dv = new Detalle_venta();
     
     public menu_admin() {
         initComponents();
@@ -117,21 +124,41 @@ public class menu_admin extends javax.swing.JFrame {
         btningrediente.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btningrediente.setForeground(new java.awt.Color(0, 0, 0));
         btningrediente.setText("Ingredientes");
+        btningrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btningredienteActionPerformed(evt);
+            }
+        });
 
         btnnutriente.setBackground(new java.awt.Color(199, 161, 122));
         btnnutriente.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btnnutriente.setForeground(new java.awt.Color(0, 0, 0));
         btnnutriente.setText("Nutrientes");
+        btnnutriente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnutrienteActionPerformed(evt);
+            }
+        });
 
         btnpedido.setBackground(new java.awt.Color(199, 161, 122));
         btnpedido.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btnpedido.setForeground(new java.awt.Color(0, 0, 0));
-        btnpedido.setText("Pedidos");
+        btnpedido.setText("Ventas");
+        btnpedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpedidoActionPerformed(evt);
+            }
+        });
 
         btndetalle.setBackground(new java.awt.Color(199, 161, 122));
-        btndetalle.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btndetalle.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btndetalle.setForeground(new java.awt.Color(0, 0, 0));
-        btndetalle.setText("Detalles de Pedidos");
+        btndetalle.setText("Detalles de Ventas");
+        btndetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndetalleActionPerformed(evt);
+            }
+        });
 
         fondo.setBackground(new java.awt.Color(245, 225, 200));
 
@@ -225,6 +252,22 @@ public class menu_admin extends javax.swing.JFrame {
     private void btnproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnproductoActionPerformed
         ShowPanel(pr);
     }//GEN-LAST:event_btnproductoActionPerformed
+
+    private void btningredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btningredienteActionPerformed
+        ShowPanel(in);
+    }//GEN-LAST:event_btningredienteActionPerformed
+
+    private void btnnutrienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnutrienteActionPerformed
+        ShowPanel(nt);
+    }//GEN-LAST:event_btnnutrienteActionPerformed
+
+    private void btnpedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpedidoActionPerformed
+        ShowPanel(vt);
+    }//GEN-LAST:event_btnpedidoActionPerformed
+
+    private void btndetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndetalleActionPerformed
+        ShowPanel(dv);
+    }//GEN-LAST:event_btndetalleActionPerformed
 
     /**
      * @param args the command line arguments
